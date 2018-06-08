@@ -78,8 +78,10 @@ BEGIN
   SELECT klient_seq.nextval INTO :new.id FROM dual;
 END;
 /
-
+--czyszczenie i resetowanie sekwencji
 DELETE FROM klient;
+SEQUENCE klient_seq RESET;
+
 --generate data for companies table
  set serveroutput on;
  exec klient_generator;
@@ -118,8 +120,11 @@ BEGIN
 END;
 /
 
+--czyszczenie i resetowanie sekwencji
 DELETE FROM zamowienie;
---generate data for companies table
+--ALTER SEQUENCE zamowienie_seq RESTART;
+
+--generowanie danych do tabeli zamowienie
  set serveroutput on;
  exec zamowienie_generator;
  
