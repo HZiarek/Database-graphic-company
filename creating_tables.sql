@@ -57,6 +57,7 @@ END;
 create table zamowienie(
 id INT NOT NULL,
 cena NUMBER NOT NULL,
+cena_ze_znizka NUMBER,
 klient INT NOT NULL,
 deadline DATE,
 zrodlo_pozyskania VARCHAR2(40),
@@ -85,7 +86,7 @@ END;
 
 create table reklamacje(
 id INT NOT NULL,
-id_zamowienia INT NOT NULL,
+id_zamowienia INT NOT NULL UNIQUE,
 data_wplyniecia DATE NOT NULL,
 przyczyna VARCHAR2(50),
 pracownik_odpowiedzialny VARCHAR2(11) NOT NULL,
@@ -114,9 +115,8 @@ id INT NOT NULL,
 pracownik VARCHAR2(11) NOT NULL,
 zamowienie INT NOT NULL,
 etap VARCHAR2(40) NOT NULL,
-data_rozpoczenia DATE NOT NULL,
+data_rozpoczecia DATE NOT NULL,
 data_zakonczenia DATE,
-procent_wykonanego_zadania INT,
 primary key(id),
 FOREIGN KEY (pracownik) 
     REFERENCES pracownik(pesel),

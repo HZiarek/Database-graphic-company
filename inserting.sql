@@ -124,4 +124,10 @@ insert into pracownik values(
 'sprzedawca'
 );
 
+set serveroutput on;
+exec klient_generator;
+exec zamowienie_generator;
+exec reklamacje_generator;
+--exec pracownik_prac_generator;
+
 commit;
