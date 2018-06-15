@@ -65,7 +65,7 @@ zrodlo_pozyskania VARCHAR2(40),
 liczba_pkt_klienta INT,
 dodatkowe_informacje VARCHAR2(50),
 status_zamowienia VARCHAR2(40) NOT NULL,
-CONSTRAINT zamowienie_pk PRIMARY KEY(id) USING INDEX,
+PRIMARY KEY(id),
 FOREIGN KEY (klient) 
     REFERENCES klient(id),
 FOREIGN KEY (zrodlo_pozyskania) 

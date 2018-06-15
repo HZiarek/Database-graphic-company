@@ -56,6 +56,11 @@ BEGIN
         RAISE_APPLICATION_ERROR( -20003, 'Nie mozna wprowadzac danych odnosnie nieprzyjetego zamowienia');
       end if;
       
+      if (koniec = 1)
+      then
+        RAISE_APPLICATION_ERROR( -20003, 'Nie mozna wprowadzac danych odnosnie oddanego zamowienia');
+      end if;
+      
       if :new.data_zakonczenia < :new.data_rozpoczecia
       then
         RAISE_APPLICATION_ERROR( -20004, 'Bledne daty');
